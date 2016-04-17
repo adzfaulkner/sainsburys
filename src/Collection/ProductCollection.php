@@ -18,7 +18,8 @@ class ProductCollection implements \JsonSerializable
     protected $collection;
 
     /**
-     * Class constructor
+     * Class constructor which creates the instance to the internal
+     * ArrayCollection object
      */
     public function __construct()
     {
