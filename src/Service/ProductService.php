@@ -1,18 +1,17 @@
 <?php
-
 namespace Arjf\Sainsburys\Service;
+
 use Arjf\Sainsburys\Model\ProductModel;
 use Arjf\Sainsburys\Service\Exception\UnexpectedResponseException;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
- * Service class mainly responsible to hydrate a ProductModel from scraped data
+ * Service class mainly responsible of hydrating a ProductModel from scraped data
  *
  * @author Adam Faulkner<adzfaulkner@hotmail.com>
  */
 class ProductService extends AbstractScrape
 {
-
     /**
      * Makes a request to the product page and scrapes the data to generate a
      * product model
@@ -81,5 +80,4 @@ class ProductService extends AbstractScrape
             ->first()
             ->text();
     }
-
 }

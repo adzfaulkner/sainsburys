@@ -1,5 +1,4 @@
 <?php
-
 namespace Arjf\Sainsburys\Service\Exception;
 
 use Exception;

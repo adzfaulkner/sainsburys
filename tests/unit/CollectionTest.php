@@ -9,7 +9,6 @@ use Arjf\Sainsburys\Collection\ProductCollection;
  */
 class CollectionTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Test to make sure that the add method is fluent and adds the model to the
      * internal collection object
@@ -70,5 +69,4 @@ class CollectionTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals(json_encode($data), json_encode($collection));
     }
-
 }

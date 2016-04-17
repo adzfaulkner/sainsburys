@@ -1,6 +1,6 @@
 <?php
-
 namespace Arjf\Sainsburys\Service;
+
 use Goutte\Client as Scraper;
 use Arjf\Sainsburys\Service\Exception\EmptyResponse;
 
@@ -12,7 +12,6 @@ use Arjf\Sainsburys\Service\Exception\EmptyResponse;
  */
 abstract class AbstractScrape
 {
-
     /**
      * @var Scrapper
      */
@@ -38,6 +37,7 @@ abstract class AbstractScrape
     /**
      * Make the request and returns the crawler object
      *
+     * @todo Add a check to make sure the URL is valid
      * @param Scraper $client
      * @param string $url
      * @return \Symfony\Component\DomCrawler\Crawler
@@ -51,10 +51,11 @@ abstract class AbstractScrape
                 throw new EmptyResponse();
             }
         }
-        
     }
 
     /**
+     * Returns the defined URL
+     *
      * @return string
      */
     public function getUrl()
@@ -63,6 +64,8 @@ abstract class AbstractScrape
     }
 
     /**
+     * Sets the URL for the internal client to use to scrape
+     *
      * @param string $url
      * @return $this
      */
@@ -72,6 +75,8 @@ abstract class AbstractScrape
         return $this;
     }
 
+    /**
+     * Where the main work of the object will occur
+     */
     abstract public function getData();
-
 }

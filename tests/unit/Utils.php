@@ -8,7 +8,6 @@ use GuzzleHttp\Client as GuzzleClient;
  */
 class Utils
 {
-
     /**
      * returns a new guzzle object used for mocking
      *
@@ -57,6 +56,4 @@ class Utils
             'r'
         );
     }
-
 }
-

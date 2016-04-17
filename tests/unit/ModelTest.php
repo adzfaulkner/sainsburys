@@ -1,5 +1,4 @@
 <?php
-
 use Arjf\Sainsburys\Model\ProductModel;
 
 /**
@@ -11,7 +10,6 @@ use Arjf\Sainsburys\Model\ProductModel;
  */
 class ModelTest extends PHPUnit_Framework_TestCase
 {
-
     /**
      * Test to make sure that the get size method can accept a callable and the
      * return value is what is expected
@@ -19,10 +17,12 @@ class ModelTest extends PHPUnit_Framework_TestCase
     public function testSizeWithCallable()
     {
         $product = new ProductModel('title', 1024, 1.00, 'description');
-        $this->assertEquals(1,
+        $this->assertEquals(
+            1,
             $product->getSize(function($size) {
                 return $size / 1024;
-            }));
+            })
+        );
     }
 
     /**
@@ -45,8 +45,8 @@ class ModelTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test to make sure that the add method is fluent and adds the model to the
-     * internal collection object
+     * Test to make sure that the json serialize function returns the expected
+     * array and serialized result matches serialized expected
      */
     public function testSerialized()
     {

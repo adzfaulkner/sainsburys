@@ -1,5 +1,4 @@
 <?php
-
 namespace Arjf\Sainsburys\Collection;
 
 use Doctrine\Common\Collections\ArrayCollection;
@@ -7,11 +6,7 @@ use Arjf\Sainsburys\Model\ProductModel;
 
 /**
  * Basic bridge that composits doctrine's array collection as I wanted to
- * inherit that functionality however restrict what can be called on it.
- *
- * Also implement JsonSerializable interface so
- * that when serialized the inner array is exposed as the parent does not
- * natively provide this support
+ * inherit that functionality however restrict what can be called on it
  *
  * @author Adam Faulkner<adzfaulkner@hotmail.com>
  */
@@ -23,7 +18,7 @@ class ProductCollection implements \JsonSerializable
     protected $collection;
 
     /**
-     * Overwrite the constructor so that nothing else
+     * Class constructor
      */
     public function __construct()
     {

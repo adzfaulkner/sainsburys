@@ -1,5 +1,4 @@
 <?php
-
 use Arjf\Sainsburys\Service\ProductService;
 use Arjf\Sainsburys\Model\ProductModel;
 use Goutte\Client;
@@ -70,7 +69,7 @@ class ProductServiceTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test to make sure that if the outer html changes then it does not impact
-     * the dom extraction
+     * the DOM extraction
      */
     public function testWithOtherResponse()
     {

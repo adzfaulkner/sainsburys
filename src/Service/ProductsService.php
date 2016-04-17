@@ -1,5 +1,4 @@
 <?php
-
 namespace Arjf\Sainsburys\Service;
 
 use Arjf\Sainsburys\Collection\ProductCollection;
@@ -48,7 +47,6 @@ class ProductsService extends AbstractScrape
      */
     public function getData()
     {
-        $productService = $this->productService;
         $crawler = $this->makeRequest();
         $filter = $crawler->filter('.productInner');
 
@@ -56,7 +54,19 @@ class ProductsService extends AbstractScrape
             throw new UnexpectedResponseException(__METHOD__ . ' can not find dom selector .productInner');
         }
 
+        return $this->generateCollection($filter);
+    }
+
+    /**
+     * Handles the iteration through the filter and generating the collection
+     *
+     * @param Crawler $filter
+     * @return ProductCollection
+     */
+    protected function generateCollection(Crawler $filter)
+    {
         $collection = new ProductCollection();
+        $productService = $this->productService;
 
         // Get the latest post in this category and display the titles
         $filter->each(function (Crawler $crawler) use ($collection, $productService) {

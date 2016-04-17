@@ -1,17 +1,9 @@
 <?php
-
 use Arjf\Sainsburys\Service\ProductsService;
-use Arjf\Sainsburys\Service\ProductService;
-use Arjf\Sainsburys\Collection\ProductCollection;
-use Arjf\Sainsburys\Model\ProductModel;
 use Goutte\Client;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Message\Response as GuzzleResponse;
 use GuzzleHttp\Stream\Stream;
-use GuzzleHttp\Subscriber\History;
 use GuzzleHttp\Subscriber\Mock;
-use GuzzleHttp\Post\PostFile;
-use Symfony\Component\BrowserKit\Cookie;
 
 /**
  * Need to test the request by mocking trying not to leave any test smell
@@ -20,9 +12,7 @@ use Symfony\Component\BrowserKit\Cookie;
  */
 class ProductsServiceTest extends PHPUnit_Framework_TestCase
 {
-
     /**
-     *
      * @var Client
      */
     protected $client;
@@ -36,8 +26,7 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test to make sure that the get size method can accept a callable and the
-     * return value is what is expected
+     * Test to make sure that an empty response will throw the expected exception
      *
      * @expectedException \Arjf\Sainsburys\Service\Exception\UnexpectedResponseException
      */
@@ -59,8 +48,7 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test to make sure that the get size method can accept a callable and the
-     * return value is what is expected
+     * Test to make sure that an unexpected response will throw the expected exception
      *
      * @expectedException \Arjf\Sainsburys\Service\Exception\UnexpectedResponseException
      */
@@ -82,9 +70,7 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test to make sure that the get size method can accept a callable and the
-     * return value is what is expected
-     *
+     * Test to make sure that given the expected repsonse, a collection is returned
      */
     public function testWithExpectedResponse()
     {
@@ -111,9 +97,8 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test to make sure that the get size method can accept a callable and the
-     * return value is what is expected
-     *
+     * Test to make sure as long as the expected html exists in the response the
+     * service will still return a collection
      */
     public function testWithOtherResponse()
     {
@@ -166,5 +151,3 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
         return Utils::getProductsMock($name);
     }
 }
-
-

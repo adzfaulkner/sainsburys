@@ -1,5 +1,4 @@
 <?php
-
 namespace Arjf\Sainsburys\Model;
 
 /**
@@ -30,22 +29,18 @@ class ProductModel implements \JsonSerializable
     protected $description;
 
     /**
+     * Class constructor
      *
      * @param string $title
      * @param int $size
      * @param type $unitPrice
      * @param type $description
      */
-    public function __construct(
-        $title,
-        $size,
-        $unitPrice,
-        $description
-    )
+    public function __construct($title, $size, $unitPrice, $description)
     {
-        $this->title = $title;
-        $this->size = (int) $size;
-        $this->unitPrice = (float) $unitPrice;
+        $this->title       = $title;
+        $this->size        = (int) $size;
+        $this->unitPrice   = (float) $unitPrice;
         $this->description = $description;
     }
 
@@ -85,7 +80,7 @@ class ProductModel implements \JsonSerializable
     {
         return $this->getSize(function($size) {
             return round($size / 1024);
-         });
+        });
     }
 
     /**
@@ -117,7 +112,7 @@ class ProductModel implements \JsonSerializable
     {
         return [
             'title' => $this->getTitle(),
-            'size' => $this->getSizeInKb() . 'kb',
+            'size' => $this->getSizeInKb().'kb',
             'unit_price' => $this->getUnitPrice(),
             'description' => $this->getDescription(),
         ];
