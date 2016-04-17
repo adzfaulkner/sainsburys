@@ -10,7 +10,7 @@ use GuzzleHttp\Subscriber\Mock;
 /**
  * Need to test the request by mocking trying not to leave any test smell
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ProductServiceTest extends PHPUnit_Framework_TestCase
 {

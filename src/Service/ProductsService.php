@@ -15,7 +15,7 @@ use Symfony\Component\DomCrawler\Crawler;
  * 3: Generate a product model and add it to the collection
  * 4: Return the collection
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ProductsService extends AbstractScrape
 {
@@ -33,8 +33,7 @@ class ProductsService extends AbstractScrape
     public function __construct(
         Client $client,
         ProductService $productService
-    )
-    {
+    ) {
         parent::__construct($client);
         $this->productService = $productService;
     }
@@ -51,7 +50,9 @@ class ProductsService extends AbstractScrape
         $filter = $crawler->filter('.productInner');
 
         if ($filter->count() < 1) {
-            throw new UnexpectedResponseException(__METHOD__ . ' can not find dom selector .productInner');
+            throw new UnexpectedResponseException(
+                __METHOD__ . ' can not find dom selector .productInner'
+            );
         }
 
         return $this->generateCollection($filter);

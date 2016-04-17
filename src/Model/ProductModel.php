@@ -4,7 +4,7 @@ namespace Arjf\Sainsburys\Model;
 /**
  * Basic model to hold the data and define how the json format
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ProductModel implements \JsonSerializable
 {
@@ -78,7 +78,7 @@ class ProductModel implements \JsonSerializable
      */
     public function getSizeInKb()
     {
-        return $this->getSize(function($size) {
+        return $this->getSize(function ($size) {
             return round($size / 1024);
         });
     }

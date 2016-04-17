@@ -2,13 +2,12 @@
 namespace Arjf\Sainsburys\Service;
 
 use Goutte\Client as Scraper;
-use Arjf\Sainsburys\Service\Exception\EmptyResponse;
 
 /**
  * Abstract class that defines the base functionality of the scrape related
  * services
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 abstract class AbstractScrape
 {
@@ -29,8 +28,7 @@ abstract class AbstractScrape
      */
     public function __construct(
         Scraper $client
-    )
-    {
+    ) {
         $this->client = $client;
     }
 
@@ -44,13 +42,7 @@ abstract class AbstractScrape
      */
     protected function makeRequest()
     {
-        try {
-            return $this->client->request('GET', $this->getUrl());
-        } catch (Exception $ex) {
-            if ($ex instanceof \InvalidArgumentException) {
-                throw new EmptyResponse();
-            }
-        }
+        return $this->client->request('GET', $this->getUrl());
     }
 
     /**
@@ -77,6 +69,8 @@ abstract class AbstractScrape
 
     /**
      * Where the main work of the object will occur
+     *
+     * @return mixed
      */
     abstract public function getData();
 }

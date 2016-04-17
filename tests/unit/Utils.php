@@ -4,7 +4,7 @@ use GuzzleHttp\Client as GuzzleClient;
 /**
  * Various utils to aid tests
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class Utils
 {

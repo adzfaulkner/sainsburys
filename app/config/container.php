@@ -1,5 +1,4 @@
 <?php
-
 use Pimple\Container;
 use Goutte\Client;
 use Arjf\Sainsburys\Command\ProductCommand;
@@ -9,7 +8,7 @@ use Arjf\Sainsburys\Service\ProductService;
 /**
  * Define pimple containers for dependency injection
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 
 $container = new Container();

@@ -8,7 +8,7 @@ use Symfony\Component\DomCrawler\Crawler;
 /**
  * Service class mainly responsible of hydrating a ProductModel from scraped data
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ProductService extends AbstractScrape
 {
@@ -34,10 +34,10 @@ class ProductService extends AbstractScrape
                 $this->getDescription($crawler)
             );
         } catch (\InvalidArgumentException $e) {
-            if (
-                $e->getMessage() === 'The current node list is empty.'
-            ) {
-                throw new UnexpectedResponseException(__METHOD__ . ' unable to find necessary dom elements');
+            if ($e->getMessage() === 'The current node list is empty.') {
+                throw new UnexpectedResponseException(
+                    __METHOD__ . ' unable to find necessary dom elements'
+                );
             }
 
             throw $e;
@@ -53,7 +53,7 @@ class ProductService extends AbstractScrape
     protected function getTitle(Crawler $crawler)
     {
         return $crawler->filter('.productTitleDescriptionContainer > h1')
-                ->text();
+            ->text();
     }
 
     /**
@@ -64,8 +64,11 @@ class ProductService extends AbstractScrape
      */
     protected function getPrice(Crawler $crawler)
     {
-        return preg_replace('/[^\d\.]/', '', $crawler->filter('.pricePerUnit')
-                ->text());
+        return preg_replace(
+            '/[^\d\.]/',
+            '',
+            $crawler->filter('.pricePerUnit')->text()
+        );
     }
 
     /**

@@ -10,7 +10,7 @@ use Arjf\Sainsburys\Service\Exception\UnexpectedResponseException;
 /**
  * The entry point to execute the command
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ProductCommand extends Command
 {
@@ -29,8 +29,7 @@ class ProductCommand extends Command
     public function __construct(
         ProductsService $productsService,
         $name = null
-    )
-    {
+    ) {
         parent::__construct($name);
         $this->productsService = $productsService;
     }
@@ -45,7 +44,7 @@ class ProductCommand extends Command
             ->setHelp(<<<EOT
 No arguments are necessary whilst executing this app, simply execute the command
 EOT
-        );
+            );
     }
 
     /**

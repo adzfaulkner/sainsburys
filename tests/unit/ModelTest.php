@@ -6,7 +6,7 @@ use Arjf\Sainsburys\Model\ProductModel;
  * type parameter allowing the user to define their own algorithm. Plus need to
  * test the json serialize method
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ModelTest extends PHPUnit_Framework_TestCase
 {

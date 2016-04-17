@@ -5,7 +5,7 @@ use Arjf\Sainsburys\Collection\ProductCollection;
  * The collection has become testable as it returns as it has a dependency on
  * the product model class
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class CollectionTest extends PHPUnit_Framework_TestCase
 {

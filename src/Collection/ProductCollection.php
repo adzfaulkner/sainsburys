@@ -8,7 +8,7 @@ use Arjf\Sainsburys\Model\ProductModel;
  * Basic bridge that composits doctrine's array collection as I wanted to
  * inherit that functionality however restrict what can be called on it
  *
- * @author Adam Faulkner<adzfaulkner@hotmail.com>
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
 class ProductCollection implements \JsonSerializable
 {
@@ -37,7 +37,7 @@ class ProductCollection implements \JsonSerializable
     }
 
     /**
-     * returns whether or not any models have been registered
+     * Returns whether or not any models have been registered
      *
      * @return bool
      */
