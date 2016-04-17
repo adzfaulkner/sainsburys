@@ -7,18 +7,18 @@ It has been preached to me in PHP Architect that to learn a new framework/librar
 one should pick a real task as opposed to participating in tutorial's hence I
 picked Symfony Console. Read plenty about it, all made sense etc but I could not
 say I have used it. I can now, however I can safely say I have only touched the
-tip of the iceburg as this task did not require me to use it's full capabilities.
+"tip of the iceburg" as this task did not require me to use it's full capabilities.
 
 Goutte Client is a lightweight scraping library I have come across before but did
-not have a use case to use it until now. Under the bonet it uses guzzle to do the
-http request and returns a symfont crawler object which allows you to transverse
+not have a use case to use it until now. Under the bonnet it uses guzzle to do the
+HTTP request and returns a Symfony crawler object which allows you to transverse
 the DOM using jQuery style selectors. Quite neat.
 
-The other I have opted to use is Phake which is a unit test mocking library which basically
-simplifies mocking dependencies compared to PHP unit's native support. I was introduced
-to this @ PHP UK 2016 and I was impressed with what was presented. This task provided
-me with the perfect opportunity to experiement withe the library and it worked
-well.
+The other I have opted to use is Phake unit testing mocking library. I was introduced 
+to it during PHP UK 2016 and I was impressed with what was presented as it seemed to 
+reduce the amount of code it takes to mock an object compared to PHP unit's native 
+support. This task provided me with the perfect opportunity to experiment with the 
+library and it worked well.
 
 Requirements
 ------------
