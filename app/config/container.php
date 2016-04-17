@@ -10,7 +10,6 @@ use Arjf\Sainsburys\Service\ProductService;
  *
  * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */
-
 $container = new Container();
 
 $container['goute_client'] = $container->factory(function ($c) {

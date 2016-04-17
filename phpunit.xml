@@ -8,10 +8,10 @@
          processIsolation="false"
          stopOnFailure="false"
          syntaxCheck="false"
-          bootstrap="./tests/unit/bootstrap.php"
+         bootstrap="./tests/unit/bootstrap.php"
 >
     <testsuites>
-        <testsuite name="Sainsburys Test Suite">
+        <testsuite name="Sainsbury's Scraper Test Suite">
             <directory>./tests/</directory>
         </testsuite>
     </testsuites>

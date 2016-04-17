@@ -6,7 +6,7 @@ use GuzzleHttp\Stream\Stream;
 use GuzzleHttp\Subscriber\Mock;
 
 /**
- * Need to test the request by mocking trying not to leave any test smell
+ * Testing the products service to make sure to responds as expected
  *
  * @author Adam Faulkner <adzfaulkner@hotmail.com>
  */

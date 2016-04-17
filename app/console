@@ -2,6 +2,11 @@
 <?php
 use Symfony\Component\Console\Application; 
 
+/**
+ * Console app script
+ *
+ * @author Adam Faulkner <adzfaulkner@hotmail.com>
+ */
 // include the bootstrap
 require_once __DIR__ . '/bootstrap.php'; 
 
