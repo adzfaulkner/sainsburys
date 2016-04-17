@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+
+// set to run indefinitely if needed
+set_time_limit(0);
+
+// include the bootstrap
+require_once __DIR__ . '/bootstrap.php'; 
+
+// import the Symfony Console Application 
+use Symfony\Component\Console\Application; 
+
+$app = new Application();
+$app->add($container['command_product']);
+$app->run();
