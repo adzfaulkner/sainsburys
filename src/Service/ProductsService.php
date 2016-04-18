@@ -12,7 +12,7 @@ use Symfony\Component\DomCrawler\Crawler;
  *
  * 1: Make the request
  * 2: Crawl through the dom
- * 3: Generate a product model and add it to the collection
+ * 3: Obstrains the URL and requests a ProductModel
  * 4: Return the collection
  *
  * @author Adam Faulkner <adzfaulkner@hotmail.com>
@@ -42,7 +42,7 @@ class ProductsService extends AbstractScrape
      * Generates the Collection object from the data received from the requests
      *
      * @return ProductCollection
-     * @throws \LengthException
+     * @throws UnexpectedResponseException
      */
     public function getData()
     {
@@ -82,7 +82,7 @@ class ProductsService extends AbstractScrape
      * Retruns the page url for a given crawler block
      *
      * @param Crawler $crawler
-     * @return type
+     * @return string|null
      */
     protected function getPageUrl(Crawler $crawler)
     {

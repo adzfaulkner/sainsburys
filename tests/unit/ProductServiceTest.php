@@ -55,7 +55,7 @@ class ProductServiceTest extends PHPUnit_Framework_TestCase
     public function testWithEmptyResponse()
     {
         $mock = new Mock();
-        $mock->addResponse(new GuzzleResponse(404, array(), Stream::factory('')));
+        $mock->addResponse(new GuzzleResponse(200, array(), Stream::factory('')));
 
         $guzzle = $this->getGuzzle();
         $guzzle->getEmitter()->attach($mock);
@@ -74,8 +74,11 @@ class ProductServiceTest extends PHPUnit_Framework_TestCase
     public function testWithOtherResponse()
     {
         $mock = new Mock();
-        $mock->addResponse(new GuzzleResponse(200, array(),
-            Stream::factory($this->getMockedResponse('other'))));
+        $mock->addResponse(
+            new GuzzleResponse(200, array(), Stream::factory(
+                $this->getMockedResponse('other'))
+            )
+        );
 
         $guzzle = $this->getGuzzle();
         $guzzle->getEmitter()->attach($mock);
@@ -88,7 +91,7 @@ class ProductServiceTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test to make sure that if an empty response is returned then an
+     * Test to make sure that if an unexpected response is returned then an
      * apprioriate exception is thrown
      *
      * @expectedException \Arjf\Sainsburys\Service\Exception\UnexpectedResponseException
@@ -96,8 +99,11 @@ class ProductServiceTest extends PHPUnit_Framework_TestCase
     public function testWithUnexpectedResponse()
     {
         $mock = new Mock();
-        $mock->addResponse(new GuzzleResponse(200, array(),
-            Stream::factory($this->getMockedResponse('unexpected'))));
+        $mock->addResponse(
+            new GuzzleResponse(200, array(), Stream::factory(
+                $this->getMockedResponse('unexpected'))
+            )
+        );
 
         $guzzle = $this->getGuzzle();
         $guzzle->getEmitter()->attach($mock);
@@ -116,8 +122,11 @@ class ProductServiceTest extends PHPUnit_Framework_TestCase
     public function testWithExpectedResponse()
     {
         $mock = new Mock();
-        $mock->addResponse(new GuzzleResponse(200, array(),
-            Stream::factory($this->getMockedResponse('expected'))));
+        $mock->addResponse(
+            new GuzzleResponse(200, array(), Stream::factory(
+                $this->getMockedResponse('expected'))
+            )
+        );
 
         $guzzle = $this->getGuzzle();
         $guzzle->getEmitter()->attach($mock);

@@ -24,7 +24,7 @@ class ProductModel implements \JsonSerializable
     protected $unitPrice;
 
     /**
-     * @var description
+     * @var string
      */
     protected $description;
 

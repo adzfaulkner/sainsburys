@@ -3,6 +3,7 @@ namespace Arjf\Sainsburys\Service;
 
 use Arjf\Sainsburys\Model\ProductModel;
 use Arjf\Sainsburys\Service\Exception\UnexpectedResponseException;
+use \InvalidArgumentException;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
@@ -17,6 +18,8 @@ class ProductService extends AbstractScrape
      * product model
      *
      * @return ProductModel
+     * @throws UnexpectedResponseException
+     * @throws InvalidException
      */
     public function getData()
     {
@@ -33,7 +36,7 @@ class ProductService extends AbstractScrape
                 $this->getPrice($crawler),
                 $this->getDescription($crawler)
             );
-        } catch (\InvalidArgumentException $e) {
+        } catch (InvalidArgumentException $e) {
             if ($e->getMessage() === 'The current node list is empty.') {
                 throw new UnexpectedResponseException(
                     __METHOD__ . ' unable to find necessary dom elements'
@@ -48,7 +51,7 @@ class ProductService extends AbstractScrape
      * Helper method to abstract the title from the crawler
      *
      * @param Crawler $crawler
-     * @return type
+     * @return string
      */
     protected function getTitle(Crawler $crawler)
     {
@@ -60,7 +63,7 @@ class ProductService extends AbstractScrape
      * Helper method to abstract the price from the crawler
      *
      * @param Crawler $crawler
-     * @return type
+     * @return string
      */
     protected function getPrice(Crawler $crawler)
     {
@@ -75,7 +78,7 @@ class ProductService extends AbstractScrape
      * Helper method to abstract the description from the crawler
      *
      * @param Crawler $crawler
-     * @return type
+     * @return string
      */
     protected function getDescription(Crawler $crawler)
     {

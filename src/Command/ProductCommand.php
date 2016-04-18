@@ -15,7 +15,6 @@ use Arjf\Sainsburys\Service\Exception\UnexpectedResponseException;
 class ProductCommand extends Command
 {
     /**
-     *
      * @var ProductsService
      */
     protected $productsService;

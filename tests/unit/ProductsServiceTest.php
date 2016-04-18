@@ -55,10 +55,15 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
     public function testWithUnexpectedResponse()
     {
         $mock = new Mock();
-        $mock->addResponse(new GuzzleResponse(200, array(), Stream::factory($this->getMockedResponse('unexpected'))));
+        $mock->addResponse(
+            new GuzzleResponse(200, array(), Stream::factory(
+                $this->getMockedResponse('unexpected'))
+            )
+        );
 
         $guzzle = $this->getGuzzle();
-        $guzzle->getEmitter()->attach($mock);
+        $guzzle->getEmitter()
+            ->attach($mock);
 
         $client = $this->client;
         $client->setClient($guzzle);
@@ -75,7 +80,11 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
     public function testWithExpectedResponse()
     {
         $mock = new Mock();
-        $mock->addResponse(new GuzzleResponse(200, array(), Stream::factory($this->getMockedResponse('expected'))));
+        $mock->addResponse(
+            new GuzzleResponse(200, array(), Stream::factory(
+                $this->getMockedResponse('expected'))
+            )
+        );
 
         $guzzle = $this->getGuzzle();
         $guzzle->getEmitter()->attach($mock);
@@ -112,7 +121,8 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
         );
 
         $guzzle = $this->getGuzzle();
-        $guzzle->getEmitter()->attach($mock);
+        $guzzle->getEmitter()
+            ->attach($mock);
 
         $client = $this->client;
         $client->setClient($guzzle);
@@ -120,7 +130,10 @@ class ProductsServiceTest extends PHPUnit_Framework_TestCase
         $productModel = Phake::mock('\Arjf\Sainsburys\Model\ProductModel');
 
         $productService = Phake::mock('\Arjf\Sainsburys\Service\ProductService');
-        Phake::when($productService)->getData()->thenReturn($productModel);
+
+        Phake::when($productService)
+            ->getData()
+            ->thenReturn($productModel);
 
         $service = new ProductsService($client, $productService);
         $collection= $service->getData();
