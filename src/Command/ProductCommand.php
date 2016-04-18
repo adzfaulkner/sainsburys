@@ -6,6 +6,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Arjf\Sainsburys\Service\ProductsService;
 use Arjf\Sainsburys\Service\Exception\UnexpectedResponseException;
+use Exception;
 
 /**
  * The entry point to execute the command
@@ -58,7 +59,9 @@ EOT
             $productService = $this->productsService;
             $output->writeln(json_encode($productService->getData()));
         } catch (UnexpectedResponseException $e) {
-            $output->writeln('Unable to retrieve data');
+            $output->writeln('Unable to retrieve data as URL\'s are not reachable');
+        } catch (Exception $e) {
+            $output->writeln('Unable to retrieve data. Please check logs.');
         }
     }
 }

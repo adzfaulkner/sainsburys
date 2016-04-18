@@ -3,7 +3,7 @@ namespace Arjf\Sainsburys\Service;
 
 use Arjf\Sainsburys\Model\ProductModel;
 use Arjf\Sainsburys\Service\Exception\UnexpectedResponseException;
-use \InvalidArgumentException;
+use InvalidArgumentException;
 use Symfony\Component\DomCrawler\Crawler;
 
 /**
